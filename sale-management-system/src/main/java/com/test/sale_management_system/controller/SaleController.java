@@ -34,5 +34,10 @@ public class SaleController {
         return saleService.getSuperBazarSales();
     }
 
+    @GetMapping("/getSales/{storeName}")
+    public List<Object[]> getSaleByStoreName(@PathVariable String storeName){
+        return saleService.getSaleByStoreName(storeName);
+    }
+
 
 }

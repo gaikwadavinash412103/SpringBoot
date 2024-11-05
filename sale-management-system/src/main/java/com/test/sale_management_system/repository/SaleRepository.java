@@ -14,4 +14,10 @@ public interface SaleRepository extends JpaRepository<Sale,Integer> {
             "WHERE st.name = 'super bazar' " +
             "GROUP BY p.name, p.mrp")
     public List<Object[]> findSuperBazarSales();
+
+    @Query("SELECT p.name, SUM(s.saleQuantity), p.mrp, SUM(s.saleQuantity * p.mrp) " +
+            "FROM Sale s JOIN s.product p JOIN s.store st " +
+            "WHERE st.name = ?1 " +
+            "GROUP BY p.name, p.mrp")
+    public List<Object[]> findSalesByStoreName(String storeName);
 }

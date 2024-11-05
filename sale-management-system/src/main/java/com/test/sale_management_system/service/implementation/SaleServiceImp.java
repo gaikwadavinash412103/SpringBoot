@@ -47,4 +47,9 @@ public class SaleServiceImp implements SaleService {
     public List<Sale> fetchAllSales() {
         return saleRepository.findAll();
     }
+
+    @Override
+    public List<Object[]> getSaleByStoreName(String storeName) {
+        return saleRepository.findSalesByStoreName(storeName);
+    }
 }

@@ -10,4 +10,6 @@ public interface SaleService {
     public List<Object[]> getSuperBazarSales();
 
     public List<Sale> fetchAllSales();
+
+    public List<Object[]> getSaleByStoreName(String storeName);
 }
